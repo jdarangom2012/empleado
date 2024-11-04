@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de empelados por departamento
+{% endblock title %}
+    
+{% block content %}    
+    {% include 'includes/header.html' %}
+        <div class="grid-container">
+            <div class="grid-x">
+                <div class="cell">Empleados por Area
+                    <div class="cell">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="200">ID</th>
+                                    <th>Nombres</th>
+                                    <th width="150">Apellidos</th>
+                                    <th width="150">Departamento</th>
+                                    <th width="150">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for empleados in list_by_area_empleados  %}
+                                    <tr>
+                                        <td>{{empleados.id}}</td>
+                                        <td>{{empleados.fist_name}}</td>
+                                        <td>{{empleados.last_name}}</td>
+                                        <td>{{empleados.departamento}}</td>
+                                        <td>
+                                            <a class="button warning" href="#">Ver</a>
+                                        </td>
+                                    </tr>
+                                      
+                                {% endfor %}                            
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+{% endblock content %}
